@@ -1,0 +1,22 @@
+<div>上方列表</div>
+<mat-sidenav-container class="container">
+    <mat-sidenav #sideNav mode="push" fixedInViewport="true" fixedTopGap="50" fixedBottomGap="50">
+        <div>我是左邊選單</div>
+        <div>
+            <a routerLink="toolBar">toolBar</a>
+        </div>
+        <div>
+            <a routerLink="list">List</a>
+        </div>
+        <div>
+            <button mat-raised-button color="warn" (click)="toggleSideNav(sideNav)">切換選單</button>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav #sideNav mode="side" position="end" opened="true">
+        <div>我是右邊選單</div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button mat-button (click)="toggleSideNav(sideNav)">切換左邊選單</button>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,78 @@
+<!-- <mat-horizontal-stepper> -->
+<h2>問卷表單</h2>
+<mat-vertical-stepper>
+    <mat-step label="個人資訊">
+        <h4>提供個人資訊</h4>
+    </mat-step>
+    <mat-step label="詳細問題">
+        <h4>主要的問題內容</h4>
+    </mat-step>
+    <mat-step label="其他">
+        <h4>其他的問題</h4>
+    </mat-step>
+</mat-vertical-stepper>
+<!-- </mat-horizontal-stepper> -->
+<hr>
+
+<h2>加上下一步\上一步的按鈕</h2>
+<mat-vertical-stepper>
+    <mat-step>
+        <ng-template matStepLabel>
+            <u>個人資訊</u>
+        </ng-template>
+        <h4>提供個人資訊</h4>
+        <button mat-button matStepperNext>前進到「詳細問題」</button>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>
+            <em>詳細問題</em>
+        </ng-template>
+        <h4>主要的問題內容</h4>
+        <button mat-button matStepperPrevious>回到「個人資訊」</button>
+        <button mat-button matStepperNext>前進到「其他」</button>
+    </mat-step>
+    <mat-step label="其他">
+        <h4>其他的問題</h4>
+        <button mat-button matStepperPrevious>回到「詳細問題」</button>
+    </mat-step>
+</mat-vertical-stepper>
+<hr>
+
+<h2>加上驗證機制</h2>
+<button mat-button (click)="isLinear = !isLinear">{{ !isLinear? '打開linear驗證機制': '關閉linear驗證機制'}}</button>
+<form [formGroup]="surveyForm">
+    <mat-vertical-stepper [linear]="isLinear" #stepper2>
+        <mat-step [stepControl]="basicQuestions" formGroupName="basicQuestions">
+            <ng-template matStepLabel>
+                <u>個人資訊</u>
+            </ng-template>
+            <h4>提供個人資訊</h4>
+            <mat-form-field>
+                <mat-label>姓名</mat-label>
+                <input matInput type="text" name="name" placeholder="張張" formControlName="name" required>
+            </mat-form-field>
+            <button mat-button matStepperNext>前進到「詳細問題」</button>
+        </mat-step>
+        <mat-step [stepControl]="question" formGroupName="question" optional>
+            <ng-template matStepLabel>
+                <em>詳細問題</em>
+            </ng-template>
+            <h4>主要的問題內容</h4>
+            <mat-form-field>
+                <input matInput type="text" name="q1" placeholder="回答一" formControlName="q1">
+            </mat-form-field>
+            <button mat-button matStepperPrevious>回到「個人資訊」</button>
+            <button mat-button matStepperNext>前進到「其他」</button>
+        </mat-step>
+        <mat-step label="其他" state="other" >
+            <h4>其他的問題</h4>
+            <button mat-button matStepperPrevious>回到「詳細問題」</button>
+            <button mat-button (click)="stepper2.reset()">重填</button>
+        </mat-step>
+
+        <ng-template matStepperIcon="other">
+            <mat-icon>comment</mat-icon>
+        </ng-template>
+    </mat-vertical-stepper>
+</form>
+<hr>

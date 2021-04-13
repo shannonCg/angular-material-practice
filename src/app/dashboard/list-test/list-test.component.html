@@ -1,0 +1,54 @@
+<h2>一般list</h2>
+<mat-list>
+    <mat-list-item>Pepper</mat-list-item>
+    <mat-list-item>Apple</mat-list-item>
+</mat-list>
+
+<h2>超連結list</h2>
+<mat-nav-list>
+    <mat-list-item><a href="https://angular.io/guide/router#nesting-routes">Angular網站</a></mat-list-item>
+    <mat-list-item><a href="https://material.angular.io/components/list/overview">Angular Material網站</a></mat-list-item>
+</mat-nav-list>
+
+<h2>分組list</h2>
+<mat-list>
+    <h2 matSubheader>水果</h2>
+    <mat-list-item>Pepper</mat-list-item>
+    <mat-list-item>Apple</mat-list-item>
+    <mat-divider></mat-divider>
+    <h2 matSubheader>食物</h2>
+    <mat-list-item>Fish</mat-list-item>
+    <mat-list-item>Meat</mat-list-item>
+</mat-list>
+
+<h2>圖像+動作list</h2>
+<mat-list>
+    <h2 matSubheader>購物車</h2>
+    <mat-list-item>
+        <img matListAvatar src="/assets/pepper.jpeg">
+        <span matLine>青椒</span>
+        <span matLine>特價NT10</span>
+        <button mat-mini-fab>
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-list-item>
+    <mat-list-item>
+        <img matListAvatar src="/assets/apple.jpeg">
+        <span matLine>頻果</span>
+        <span matLine>特價NT10</span>
+        <button mat-mini-fab>
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-list-item>
+</mat-list>
+
+<h2>多選list</h2>
+<mat-list>
+    <h2 matSubheader><mat-icon>checklist</mat-icon>待辦清單</h2>
+    <mat-selection-list>
+        <mat-list-option selected="true" [value]="1" #optGame>買遊戲</mat-list-option>
+        <mat-list-option [value]="2" #optMilk>買牛奶</mat-list-option>
+    </mat-selection-list>
+    <mat-list-item *ngIf="optGame.selected">已買遊戲</mat-list-item>
+    <mat-list-item *ngIf="optMilk.selected">已買牛奶</mat-list-item>
+</mat-list>
