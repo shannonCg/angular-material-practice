@@ -25,20 +25,24 @@ export class SearchHighlightDirective implements OnChanges{
     const highlightWord = changes.searchWord.currentValue;
     const applyClass = this.highlightClass;
     const formatTexts = this.highlightText(word, highlightWord, applyClass);
-    if(formatTexts.length >= 1){
-      const t1 = this.render.createText(formatTexts[0]);
-      this.render.appendChild(this.el.nativeElement, t1);
-    }
+    // console.log(highlightWord); 
     
-    if (formatTexts.length == 3){
-      const t2 = this.render.createText(formatTexts[1]);
-      const span = this.render.createElement('span');
-      this.render.addClass(span, applyClass);
-      this.render.appendChild(span, t2);
-      this.render.appendChild(this.el.nativeElement, span);
-
-      const t3 = this.render.createText(formatTexts[2]);
-      this.render.appendChild(this.el.nativeElement, t3);
+    if(this.el.nativeElement.children.length == 0){ //因為有重複
+      if(formatTexts.length >= 1){
+        const t1 = this.render.createText(formatTexts[0]);
+        this.render.appendChild(this.el.nativeElement, t1);
+      }
+      
+      if (formatTexts.length == 3){
+        const t2 = this.render.createText(formatTexts[1]);
+        const span = this.render.createElement('span');
+        this.render.addClass(span, applyClass);
+        this.render.appendChild(span, t2);
+        this.render.appendChild(this.el.nativeElement, span);
+  
+        const t3 = this.render.createText(formatTexts[2]);
+        this.render.appendChild(this.el.nativeElement, t3);
+      }
     }
   }
 
