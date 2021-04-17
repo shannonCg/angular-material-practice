@@ -17,9 +17,12 @@ export class InputTestComponent implements OnInit {
   ) { }
 
   name!: FormControl;
+  
   country!: FormControl;
   countries$?: Observable<any[]>;
   
+  majorTech!: FormControl;  
+  majorTechs!: any;
 
   ngOnInit(): void {
     this.name = this.fb.control('', [Validators.required, Validators.minLength(4)]);
@@ -33,6 +36,8 @@ export class InputTestComponent implements OnInit {
                                     // switch to new search observable each time the term changes
                                     switchMap(v => this.searchCountry(v))
                                   );
+    this.majorTech = this.fb.control('');
+    this.majorTechs = this.getMajorTechList();
   }
 
   private searchCountry(term: string): Observable<any[]>{
@@ -40,8 +45,29 @@ export class InputTestComponent implements OnInit {
                     .pipe(map(v => v.filter(c => c.name.indexOf(term)>= 0)));
   }
 
+  private getMajorTechList(){
+    return  [
+      {
+        name: '前端',
+        items: ['HTML', 'CSS', 'JavaScript']
+      },
+      {
+        name: '後端',
+        items: ['C#', 'NodeJs', 'Go']
+      }
+    ];
+  }
+
   highlightSearchCountry(countryName: string): any{
     const inputCountry = this.country.value;
     return countryName.replace(inputCountry, `<span style="font-weight: bold;background: yellow">${inputCountry}</span>`);
+  }
+
+  displayCountry(country: any){
+    if(country){
+      return `${country.name}/${country.code}`;
+    }else{
+      return '';
+    }
   }
 }

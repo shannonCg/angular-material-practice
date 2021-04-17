@@ -19,10 +19,22 @@
     <mat-form-field>
         <input type="text" matInput placeholder="國家" [formControl]="country" [matAutocomplete]="countryAuto">
     </mat-form-field>
-    <mat-autocomplete #countryAuto="matAutocomplete" autoActiveFirstOption>
-        <mat-option *ngFor="let autoCountry of countries$ | async" [value]="autoCountry.name">
+    <mat-autocomplete #countryAuto="matAutocomplete" [displayWith]="displayCountry">
+        <mat-option *ngFor="let autoCountry of countries$ | async" [value]="autoCountry">
             <!-- <span [innerHTML]="highlightSearchCountry(autoCountry.name) | safeHtml"></span> -->
             <span appSearchHighlight [searchWord]="country.value"  [text]="autoCountry.name" highlightClass="autocompleteHighlight"></span>
         </mat-option>
+    </mat-autocomplete>
+</div>
+<div>
+    <mat-form-field>
+        <input type="text" matInput placeholder="代表技術" [formControl]="majorTech" [matAutocomplete]="techAuto">
+    </mat-form-field>
+    <mat-autocomplete #techAuto="matAutocomplete">
+        <mat-optgroup *ngFor="let autoTech of majorTechs" [label]="autoTech.name">
+            <mat-option *ngFor="let tech of autoTech.items" [value]="tech">
+                {{tech}}
+            </mat-option>
+        </mat-optgroup>
     </mat-autocomplete>
 </div>
