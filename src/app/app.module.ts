@@ -13,6 +13,7 @@ import { InputTestComponent } from './input-test/input-test.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchHighlightDirective } from './search-highlight.directive';
 import { SafeHtmlPipe } from './safe-html.pipe';
+import { DatepickerTestComponent } from './datepicker-test/datepicker-test.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SafeHtmlPipe } from './safe-html.pipe';
     StepperTestComponent,
     InputTestComponent,
     SearchHighlightDirective,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    DatepickerTestComponent
   ],
   imports: [
     BrowserModule,

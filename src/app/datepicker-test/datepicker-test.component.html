@@ -1,0 +1,43 @@
+<div>
+    地區：
+    <mat-button-toggle-group [formControl]="locale">
+        <mat-button-toggle value="en">美國</mat-button-toggle>
+        <mat-button-toggle value="ja">日本</mat-button-toggle>
+        <mat-button-toggle value="zh-tw">台灣</mat-button-toggle>
+    </mat-button-toggle-group>
+    <p>locale selected: {{locale.value}}</p>
+</div>
+<div>
+    <mat-form-field>
+        <input type="text" placeholder="生日" matInput [formControl]="birthday" [matDatepicker]="birthdayPicker" 
+        [min]="minDate" [max]="maxDate" [matDatepickerFilter]="familyDayFilter"
+        (dateInput)="logDataInput('input', $event)" (dateChange)="logDataInput('change', $event)">
+        <mat-datepicker-toggle [for]="birthdayPicker" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #birthdayPicker [startAt]="startDate" disabled="false"></mat-datepicker>
+    </mat-form-field>
+    <p>form result: {{birthday.value | json}}</p>
+</div>
+<div>
+    <mat-form-field appearance="fill">
+        <mat-label>運動時間範圍</mat-label>
+        <mat-date-range-input [rangePicker]="exercisePicker" [formGroup]="exerciseRange">
+            <input type="text" placeholder="開始日期" matStartDate formControlName="start">
+            <input type="text" placeholder="結束日期" matEndDate formControlName="end">
+        </mat-date-range-input>
+        <mat-datepicker-toggle [for]="exercisePicker" matSuffix></mat-datepicker-toggle>
+        <mat-date-range-picker #exercisePicker></mat-date-range-picker>
+    </mat-form-field>
+    <p>form result: {{exerciseRange.value | json}}</p>
+</div>
+<div>
+    <mat-form-field>
+        <input type="text" placeholder="購買時間" matInput [formControl]="buy" [matDatepicker]="buyPicker"> 
+        <mat-datepicker-toggle [for]="buyPicker" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #buyPicker >
+            <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>取消</button>
+                <button mat-button matDatepickerApply color="primary">確認</button>
+            </mat-datepicker-actions>
+        </mat-datepicker>
+    </mat-form-field>
+</div>

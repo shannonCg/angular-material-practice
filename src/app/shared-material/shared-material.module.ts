@@ -9,6 +9,22 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
+export const TW_FORMAT = {
+  parse: {
+    dateInput: ['l', 'L', 'LL']
+  },
+  display: {
+    dateInput: 'LL',
+    monthYearLabel: 'YYYY MMM',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'YYYY MMM'
+  }
+}
 
 @NgModule({
   declarations: [],
@@ -24,7 +40,15 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    MatButtonToggleModule
+  ],
+  providers: [
+    {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true, strict: true}},
+    {provide: MAT_DATE_LOCALE, useValue: 'zh-tw'},
+    {provide: MAT_DATE_FORMATS, useValue: TW_FORMAT}
   ]
 })
 export class SharedMaterialModule { }
