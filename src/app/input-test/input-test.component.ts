@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Observable} from 'rxjs';
-import {debounceTime, distinctUntilChanged, map, switchMap} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-input-test',
@@ -24,6 +24,9 @@ export class InputTestComponent implements OnInit {
   majorTech!: FormControl;  
   majorTechs!: any;
 
+  tel!: FormControl;
+  pwdHide = true;
+  
   ngOnInit(): void {
     this.name = this.fb.control('', [Validators.required, Validators.minLength(4)]);
     this.country = this.fb.control('');
@@ -38,6 +41,7 @@ export class InputTestComponent implements OnInit {
                                   );
     this.majorTech = this.fb.control('');
     this.majorTechs = this.getMajorTechList();
+    this.tel = this.fb.control('', [Validators.required, Validators.maxLength(5)]);
   }
 
   private searchCountry(term: string): Observable<any[]>{
@@ -69,5 +73,12 @@ export class InputTestComponent implements OnInit {
     }else{
       return '';
     }
+  }
+
+  getTelErrorMsg(): string{
+    if(this.tel.hasError('required')){
+      return '未填寫';
+    }
+    return this.tel.hasError('maxlength')? '最多只能填寫五個字':'';
   }
 }
