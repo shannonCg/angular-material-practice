@@ -35,9 +35,11 @@
         <mat-datepicker-toggle [for]="buyPicker" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #buyPicker >
             <mat-datepicker-actions>
+                <button mat-button (click)="clearDate(buyPicker)">清除</button>
                 <button mat-button matDatepickerCancel>取消</button>
-                <button mat-button matDatepickerApply color="primary">確認</button>
+                <button mat-raised-button matDatepickerApply color="primary">確認</button>
             </mat-datepicker-actions>
         </mat-datepicker>
     </mat-form-field>
+    <p>form result: {{buy.value | json}}</p>
 </div>

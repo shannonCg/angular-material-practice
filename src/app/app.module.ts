@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchHighlightDirective } from './search-highlight.directive';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { DatepickerTestComponent } from './datepicker-test/datepicker-test.component';
+import { SelectTestComponent } from './select-test/select-test.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DatepickerTestComponent } from './datepicker-test/datepicker-test.compo
     InputTestComponent,
     SearchHighlightDirective,
     SafeHtmlPipe,
-    DatepickerTestComponent
+    DatepickerTestComponent,
+    SelectTestComponent
   ],
   imports: [
     BrowserModule,

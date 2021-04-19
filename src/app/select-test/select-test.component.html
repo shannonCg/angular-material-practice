@@ -1,0 +1,53 @@
+<div>
+    <mat-form-field>
+        <mat-label>興趣</mat-label>
+        <mat-select [formControl]="interest">
+            <mat-option>請選擇</mat-option>
+            <mat-option *ngFor="let item of interestList" [value]="item.id">
+                {{item.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <p>form result: {{interest.value | json}}</p>
+</div>
+<div>
+    <mat-form-field>
+        <mat-select [formControl]="interest" placeholder="不可下拉" [disabled]="true">
+            <mat-option *ngFor="let item of interestList; let index = index" [value]="item.id">
+                {{item.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select [formControl]="interest" placeholder="某一個選項不可下拉">
+            <mat-option *ngFor="let item of interestList; let index = index" [value]="item.id" [disabled]="index === 0">
+                {{item.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field>
+        <mat-label>職業</mat-label>
+        <mat-select [formControl]="job">
+            <mat-option>請選擇</mat-option>
+            <mat-optgroup *ngFor="let groupJob of jobNestList; let index = index" [label]="groupJob.group" [disabled]="index === 1">
+                <mat-option *ngFor="let job of groupJob.jobs" [value]="job.id">
+                    {{job.name}}
+                </mat-option>
+            </mat-optgroup>
+        </mat-select>
+    </mat-form-field>
+    <p>form result: {{job.value | json}}</p>
+</div>
+<div>
+    <mat-form-field>
+        <mat-label>飲食習慣</mat-label>
+        <mat-select [formControl]="eatTime" multiple>
+            <mat-option *ngFor="let time of eatTimeList" [value]="time">
+                {{time}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <p>form result: {{eatTime.value | json}}</p>
+</div>

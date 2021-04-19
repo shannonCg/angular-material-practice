@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MatDatepicker, MatDatepickerInputEvent } from '@angular/material/datepicker';
 import * as moment from 'moment';
 
 @Component({
@@ -48,5 +48,10 @@ export class DatepickerTestComponent implements OnInit {
 
   logDataInput(type: string, event: MatDatepickerInputEvent<moment.Moment>){
     console.log(`type: ${type}=> ${event.value}`);
+  }
+
+  clearDate(picker:MatDatepicker<moment.Moment>){
+    this.buy.reset('');
+    picker.close();
   }
 }

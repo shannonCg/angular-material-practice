@@ -4,6 +4,7 @@ import { ButtonTestComponent } from './button-test/button-test.component';
 import { DatepickerTestComponent } from './datepicker-test/datepicker-test.component';
 import { IconTestComponent } from './icon-test/icon-test.component';
 import { InputTestComponent } from './input-test/input-test.component';
+import { SelectTestComponent } from './select-test/select-test.component';
 import { StepperTestComponent } from './stepper-test/stepper-test.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'stepper', component: StepperTestComponent},
   {path: 'input', component: InputTestComponent},
   {path: 'datepicker', component: DatepickerTestComponent},
+  {path: 'select', component: SelectTestComponent},
 ];
 
 @NgModule({
