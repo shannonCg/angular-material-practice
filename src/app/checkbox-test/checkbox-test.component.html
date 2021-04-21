@@ -1,0 +1,7 @@
+<section>
+    <p>生活消費</p>
+    <mat-checkbox [formControl]="payForAll" (change)="checkAllChange($event)" [indeterminate]="selectedPayForAll">全部</mat-checkbox>
+    <mat-checkbox [formControl]="payForBook" (change)="payForChange()">書籍</mat-checkbox>
+    <mat-checkbox [formControl]="payForMusic" (change)="payForChange()">音樂</mat-checkbox>
+    <mat-checkbox [formControl]="payForMovie" (change)="payForChange()">電影</mat-checkbox>
+</section>

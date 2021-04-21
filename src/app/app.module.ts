@@ -15,6 +15,7 @@ import { SearchHighlightDirective } from './search-highlight.directive';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { DatepickerTestComponent } from './datepicker-test/datepicker-test.component';
 import { SelectTestComponent } from './select-test/select-test.component';
+import { CheckboxTestComponent } from './checkbox-test/checkbox-test.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { SelectTestComponent } from './select-test/select-test.component';
     SearchHighlightDirective,
     SafeHtmlPipe,
     DatepickerTestComponent,
-    SelectTestComponent
+    SelectTestComponent,
+    CheckboxTestComponent
   ],
   imports: [
     BrowserModule,
