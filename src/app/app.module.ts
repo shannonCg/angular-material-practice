@@ -17,6 +17,7 @@ import { DatepickerTestComponent } from './datepicker-test/datepicker-test.compo
 import { SelectTestComponent } from './select-test/select-test.component';
 import { CheckboxTestComponent } from './checkbox-test/checkbox-test.component';
 import { RadioTestComponent } from './radio-test/radio-test.component';
+import { SlideTestComponent } from './slide-test/slide-test.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { RadioTestComponent } from './radio-test/radio-test.component';
     DatepickerTestComponent,
     SelectTestComponent,
     CheckboxTestComponent,
-    RadioTestComponent
+    RadioTestComponent,
+    SlideTestComponent
   ],
   imports: [
     BrowserModule,

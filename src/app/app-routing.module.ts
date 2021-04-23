@@ -7,6 +7,7 @@ import { IconTestComponent } from './icon-test/icon-test.component';
 import { InputTestComponent } from './input-test/input-test.component';
 import { RadioTestComponent } from './radio-test/radio-test.component';
 import { SelectTestComponent } from './select-test/select-test.component';
+import { SlideTestComponent } from './slide-test/slide-test.component';
 import { StepperTestComponent } from './stepper-test/stepper-test.component';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'select', component: SelectTestComponent},
   {path: 'checkbox', component: CheckboxTestComponent},
   {path: 'radio', component: RadioTestComponent},
+  {path: 'slide', component: SlideTestComponent},
 ];
 
 @NgModule({

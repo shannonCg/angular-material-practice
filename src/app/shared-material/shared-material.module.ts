@@ -16,6 +16,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 export const TW_FORMAT = {
   parse: {
@@ -49,7 +50,8 @@ export const TW_FORMAT = {
     MatButtonToggleModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSlideToggleModule
   ],
   providers: [
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true, strict: true}},
