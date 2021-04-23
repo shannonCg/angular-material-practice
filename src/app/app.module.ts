@@ -16,6 +16,7 @@ import { SafeHtmlPipe } from './safe-html.pipe';
 import { DatepickerTestComponent } from './datepicker-test/datepicker-test.component';
 import { SelectTestComponent } from './select-test/select-test.component';
 import { CheckboxTestComponent } from './checkbox-test/checkbox-test.component';
+import { RadioTestComponent } from './radio-test/radio-test.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CheckboxTestComponent } from './checkbox-test/checkbox-test.component';
     SafeHtmlPipe,
     DatepickerTestComponent,
     SelectTestComponent,
-    CheckboxTestComponent
+    CheckboxTestComponent,
+    RadioTestComponent
   ],
   imports: [
     BrowserModule,

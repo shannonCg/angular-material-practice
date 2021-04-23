@@ -1,0 +1,9 @@
+<div>生活滿意度</div>
+<mat-radio-group [formControl]="lifeLike">
+    <mat-radio-button [value]="1">超討厭</mat-radio-button>
+    <mat-radio-button [value]="2">討厭</mat-radio-button>
+    <mat-radio-button [value]="3">普通</mat-radio-button>
+    <mat-radio-button [value]="4">喜歡</mat-radio-button>
+    <mat-radio-button [value]="5">超喜歡</mat-radio-button>
+</mat-radio-group>
+<p>form result: {{lifeLike.value | json}}</p>
